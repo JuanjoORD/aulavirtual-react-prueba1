@@ -83,11 +83,6 @@ Basic
 1. [Configuration](#configuration)
 1. [Installing Dependencies](#installing-dependencies)
 
-Advanced
-1. [Multiple Device Concurrent Debugging](#multiple-device-concurrent-debugging)
-1. [Developing Template](#developing-template)
-1. [Production Optimization and Bundle Analysis](#production-optimization-and-bundle-analysis)
-1. [Integration Note](#integration-note)
 
 # Basic
 
