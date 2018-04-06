@@ -1,0 +1,12 @@
+.login-overlay .panel-body{
+    min-height: 244px;
+}
+.has-feedback{
+    position: relative;
+}
+.form-control-feedback{
+    right: 10px;
+    left: auto;
+    top: 10px;
+    position: absolute;
+}
