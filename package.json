@@ -130,11 +130,6 @@
       "jsx"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm test"
-    }
-  },
   "keywords": [
     "react",
     "redux",
