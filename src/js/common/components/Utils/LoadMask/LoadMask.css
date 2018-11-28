@@ -1,0 +1,45 @@
+.load-mask {
+    position: relative;
+}
+
+.load-mask-content.blur {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    filter: blur(0);
+    transition: filter 0.2s ease-out;
+}
+
+.load-mask-content.blur.loading {
+    filter: blur(5px);
+}
+
+.loader-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-container p {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.loader-container.radius {
+    border-radius: 10px;
+}
+
+.loader-container.dark {
+    background: rgba(40, 40, 40, 0.1)
+}
+
+.loader-container.light {
+    background: rgba(255, 255, 255, 0.5)
+}
