@@ -17,9 +17,8 @@ class Siderbar extends Component {
                             <div className="d-table m-auto">
                                 <img id="main-logo"
                                     className="d-inline-block align-top mr-1"
-                                    src="https://designrevision.com/demo/shards-dashboard-lite-react/static/media/shards-dashboards-logo.60a85991.svg"
-                                    alt="Shards Dashboard" />
-                                    <span className="d-none d-md-inline ml-1">Ciancoders</span>
+                                    src={require('assets/img/logo.png')}
+                                    alt="Logo" />
                             </div>
                         </a>
                         <a  className="toggle-sidebar d-sm-inline d-md-none d-lg-none"

@@ -93,6 +93,9 @@ h1, h2 {
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
 }
+#main-logo{
+    max-width: 156px;
+}
 
 @import "all.css";
 @import "all2.css";
