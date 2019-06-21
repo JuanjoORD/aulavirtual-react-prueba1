@@ -6,11 +6,7 @@ import './login.css';
 
 class Login extends PureComponent {
     static propTypes = {
-        nameError: PropTypes.bool.isRequired,
-        passError: PropTypes.bool.isRequired,
         onSubmit: PropTypes.func.isRequired,
-        hasNameError: PropTypes.func.isRequired,
-        hasPassError: PropTypes.func.isRequired,
     };
 
     componentDidMount(props) {
