@@ -1,4 +1,3 @@
-## Build Status
 [![linux build](https://api.travis-ci.org/iroy2000/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/iroy2000/react-redux-boilerplate)
 [![Dependency Status][david_img]][david_site]
 [![Join the chat at https://gitter.im/iroy2000-react-redux-boilerplate/Lobby](https://badges.gitter.im/iroy2000-react-redux-boilerplate/Lobby.svg)](https://gitter.im/iroy2000-react-redux-boilerplate/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -13,16 +12,36 @@ git clone https://github.com/CianCoders/react-redux-starter.git
 cd react-redux-starter
 ```
 
-Step 2: Install
+Step 2: Create a virtualenv with python3
 
 ```
-npm install
+mkvirtualenv starter --python=/usr/bin/python3
 ```
 
-Step 3: Start
+Step 3: Install the backend requirements
 
 ```
-npm run dev
+pip install -r requirements.txt
+```
+
+Step 4: Run the migrations
+
+```
+./manage.py migrate
+```
+
+Step 5: Start the backend
+
+```
+./manage.py runserver
+```
+
+Step 6: Start the frontend
+
+```
+cd frontend
+npm i
+npm start
 ```
 
 And Done, as easy as 123!!
@@ -36,6 +55,8 @@ React Redux Boilerplate is a full fledged __PRODUCTION READY__ workflow boilerpl
 
 Features
 
+* Django 2.1.2
+* Django REST Framework 3.8.2
 * React 16
 * Redux
 * ES6 / ES7
