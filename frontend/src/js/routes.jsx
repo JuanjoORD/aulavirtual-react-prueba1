@@ -8,6 +8,7 @@ import Login from './common/components/Login/LoginContainer';
 import Demo from './common/components/Demo/Demo';
 import Demo2 from './common/components/Demo/Demo2';
 import ProtectedRoute from './ProtectedRoute';
+import Examples from './common/components/Examples/Examples';
 
 import '../assets/fonts/fonts.css';
 
@@ -20,8 +21,8 @@ module.exports = (
         <div className="container__content">
             <Switch>
                 <Route exact path="/login" component={Login} />
-                <ProtectedRoute path="/" component={Demo} />
-                <ProtectedRoute path="/page2" component={Demo2} />
+                <ProtectedRoute exact path="/" component={Demo} />
+                <ProtectedRoute exact path="/page2" component={Examples} />
                 <Route>
                     <div>
                         <h1>Pagina no encontrada</h1>

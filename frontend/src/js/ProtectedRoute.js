@@ -42,11 +42,7 @@ class ProtectedRoute extends Component {
                                     </div>
                                 </div>
                                 <div className="main-content-container px-4 container-fluid">
-                                    <div className="page-header py-4 no-gutters row">
-                                        <div className="text-sm-left mb-3 text-center text-md-left mb-sm-0 col-12 col-sm-4">
-                                            <Component {...props} />
-                                        </div>
-                                    </div>
+                                    <Component {...props} />
                                 </div>
                             </main>
                             {/*<Body />*/}
