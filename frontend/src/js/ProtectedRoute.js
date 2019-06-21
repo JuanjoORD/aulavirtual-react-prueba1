@@ -22,7 +22,6 @@ class ProtectedRoute extends Component {
 
     navToggle = () => {
         this.setState({toggleOpen: !this.state.toggleOpen });
-        console.log('hola que hacemos', this.state.toggleOpen );
     };
 
 
@@ -34,7 +33,7 @@ class ProtectedRoute extends Component {
                 render={props =>
                     isAuthenticated() ? (
                         <div>
-                            <SiderBar  toggleOpen={this.state.toggleOpen} navToggle={this.navToggle} />
+                            <SiderBar toggleOpen={this.state.toggleOpen} navToggle={this.navToggle} />
                             <main className="main-content p-0 col-sm-12 col-md-9 offset-md-3 col-lg-10 offset-lg-2">
                                 <div className="main-navbar bg-white sticky-top">
                                     <div className="p-0 container">
@@ -44,12 +43,8 @@ class ProtectedRoute extends Component {
                                 <div className="main-content-container px-4 container-fluid">
                                     <Component {...props} />
                                 </div>
+                                <Footer />
                             </main>
-                            {/*<Body />*/}
-                            {/*<div className="content-wrapper">*/}
-                            {/*    <Component {...props} />*/}
-                            {/*</div>*/}
-                            <Footer />
                         </div>
                     ) : (
                         <Redirect

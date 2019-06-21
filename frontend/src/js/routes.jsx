@@ -9,6 +9,7 @@ import Demo from './common/components/Demo/Demo';
 import Demo2 from './common/components/Demo/Demo2';
 import ProtectedRoute from './ProtectedRoute';
 import Examples from './common/components/Examples/Examples';
+import NotFound from './common/components/layout/NotFound/NotFound';
 
 import '../assets/fonts/fonts.css';
 
@@ -23,11 +24,7 @@ module.exports = (
                 <Route exact path="/login" component={Login} />
                 <ProtectedRoute exact path="/" component={Demo} />
                 <ProtectedRoute exact path="/page2" component={Examples} />
-                <Route>
-                    <div>
-                        <h1>Pagina no encontrada</h1>
-                    </div>
-                </Route>
+                <Route component={NotFound} />
             </Switch>
         </div>
     </div>
