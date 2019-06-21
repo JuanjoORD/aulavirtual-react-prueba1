@@ -200,6 +200,25 @@ export const renderSwitch = ({
     </div>
   );
 };
+export const renderFieldCheck = ({ input, label, value, disabled, type, meta: { touched, error } }) => {
+    const invalid = touched && error;
+    return (
+        <div>
+            <input
+                {...input}
+                placeholder={label}
+                type={type}
+                disabled={disabled ? 'disabled' : ''}
+                className={classNames('form-check-input', { 'is-invalid': invalid })}
+            />
+            {invalid && (
+                <div className="invalid-feedback">
+                    {error}
+                </div>
+            )}
+        </div>
+    );
+};
 
 export const RenderField = {
   renderField,
@@ -210,4 +229,5 @@ export const RenderField = {
   renderNumber,
   renderCurrency,
   renderSwitch,
+  renderFieldCheck,
 };

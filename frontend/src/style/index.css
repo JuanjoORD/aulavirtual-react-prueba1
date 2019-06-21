@@ -16,8 +16,9 @@
 
 .content-wrapper {
   position: absolute;
-  top: 76px;
+  top: 75px;
   width: 100%;
+  background: #f5f6f8;
 }
 
 h1, h2 {
