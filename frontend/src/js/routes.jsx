@@ -5,10 +5,11 @@ import {
     Redirect,
 } from 'react-router-dom';
 import Login from './common/components/Login/LoginContainer';
-import Home from './common/components/Home/Home';
-
-import Privado from './common/components/Privado/Privado';
-import ProtectedRoute from './ProtectedRoute'
+import Demo from './common/components/Demo/Demo';
+import Demo2 from './common/components/Demo/Demo2';
+import ProtectedRoute from './ProtectedRoute';
+import Examples from './common/components/Examples/Examples';
+import NotFound from './common/components/layout/NotFound/NotFound';
 
 import '../assets/fonts/fonts.css';
 
@@ -21,8 +22,9 @@ module.exports = (
         <div className="container__content">
             <Switch>
                 <Route exact path="/login" component={Login} />
-                <ProtectedRoute path="/page" component={Privado} />
-                <Route path="*" component={Home} />
+                <ProtectedRoute exact path="/" component={Demo} />
+                <ProtectedRoute exact path="/page2" component={Examples} />
+                <Route component={NotFound} />
             </Switch>
         </div>
     </div>
