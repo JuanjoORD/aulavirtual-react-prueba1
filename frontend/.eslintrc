@@ -18,8 +18,11 @@
   },
   // Rule changes from Airbnb's eslint config
   "rules": {
+    "indent": ["error", 4],
+    "react/jsx-indent": ["error", 4],
     "import/no-unresolved": 0,
     "new-cap": 0,
+    "quotes": "off",
     "global-require": 0,
     "no-underscore-dangle": 0,
     "arrow-body-style": 0,
@@ -27,8 +30,12 @@
     "react/forbid-prop-types": 0,
     "jsx-a11y/href-no-hash": 0,
     "import/prefer-default-export": 0,
+    "react/prefer-stateless-function": false,
     "react/prop-types": 0,
     "react/jsx-filename-extension": 0,
+    "react/jsx-indent-props": ["error", 4],
+    "object-curly-newline": "off",
+    "max-len": ["error", 120],
     "comma-dangle": [2, "always-multiline"]
   }
 }

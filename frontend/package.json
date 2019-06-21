@@ -16,7 +16,6 @@
     "url": "https://github.com/iroy2000/react-redux-boilerplate.git"
   },
   "homepage": "https://github.com/iroy2000/react-redux-boilerplate",
-  "author": "Roy Yu <iroy2000@gmail.com>",
   "license": "MIT",
   "engines": {
     "npm": ">=3.10.7",
@@ -62,7 +61,6 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
-    "husky": "^1.1.2",
     "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^4.3.1",
     "jest-cli": "^23.5.0",
@@ -86,7 +84,7 @@
     "webpack-s3-plugin": "^1.0.0-rc.0"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
@@ -103,14 +101,16 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^4.0.8",
-    "react-select": "^2.0.0",
+    "react-select": "^2.4.4",
     "react-switch": "^3.0.4",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.3",
     "redux-form": "^7.4.2",
-    "redux-thunk": "^2.2.0",
     "redux-saga": "^0.16.0",
+    "redux-thunk": "^2.2.0",
     "reselect": "^4.0.0",
+    "superagent": "^5.1.0",
+    "validate-redux-form": "^0.2.0",
     "webpack-cli": "^3.1.0"
   },
   "jest": {
