@@ -10,3 +10,28 @@
     top: 10px;
     position: absolute;
 }
+.login-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-login {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+
+}
+.bienvenida{
+    color:white;
+    font-weight: bold;
+}
+.buttons-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body{
+    background: #007bff;
+    background: linear-gradient(to right, #0062E6, #3ac1ff);
+}
