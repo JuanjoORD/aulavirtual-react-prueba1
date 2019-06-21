@@ -7,12 +7,14 @@ const LoginForm = (props) => {
     return (
         <form name="loginForm" className="form-validate mb-lg" onSubmit={handleSubmit}>
             <div className="form-group has-feedback">
-                <Field name="email" label="Usuario" component={renderField} type="text" className="form-control" />
+                <label htmlFor="username">Usuario</label>
+                <Field name="username" label="Usuario" component={renderField} type="text" className="form-control" />
             </div>
             <div className="form-group has-feedback">
+                <label htmlFor="password">Contraseña</label>
                 <Field
                     name="password"
-                    label="contraseña"
+                    label="Contraseña"
                     component={renderField}
                     type="password"
                     className="form-control"

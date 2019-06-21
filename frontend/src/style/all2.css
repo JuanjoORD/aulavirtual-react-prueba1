@@ -53,7 +53,6 @@ body {
     font-size: 1rem;
     font-weight: 300;
     color: #5a6169;
-    background-color: #fff
 }
 
 a {
@@ -81,7 +80,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: .75rem;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
     font-weight: 400;
-    color: #3d5170
 }
 
 .h1, h1 {
@@ -4651,7 +4649,6 @@ body, html {
 }
 
 body {
-    background: #f5f6f8;
     font-size: 15px
 }
 

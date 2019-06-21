@@ -20,12 +20,11 @@ class Examples extends Component {
                                 <div className="mb-3 col-sm-12 col-md-4">
                                     <strong className="text-muted d-block mb-2">Checkboxes</strong>
                                     <div className="listado d-flex flex-column">
+                                        <label htmlFor="pago_completo">Pagado completamente</label>
                                         <Field
                                             name="pago_completo"
                                             component={renderFieldCheck}
                                             type="checkbox"
-                                            disabled
-                                            className="form-control"
                                             placeholder="Correo"
                                         />
                                     </div>

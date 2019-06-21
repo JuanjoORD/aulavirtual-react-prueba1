@@ -29,12 +29,10 @@ class Login extends PureComponent {
                     <p>Página de login</p>
                 </div>
                 <br />
-                <div className="row login-wrapper">
+                <div className="login-wrapper">
                     <div className="card card-login col-lg-3 col-md-4 col-11">
                         <h5 className="text-center pv">INGRESAR</h5>
                         <LoginForm onSubmit={onSubmit} />
-                        <br />
-                        <p>Regresar a <a href="/">Home</a></p>
                     </div>
                 </div>
             </div>
