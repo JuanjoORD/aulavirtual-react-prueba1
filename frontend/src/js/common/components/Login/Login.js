@@ -20,7 +20,7 @@ class Login extends PureComponent {
     render() {
         const { onSubmit } = this.props;
         if (localStorage.getItem('token')) {
-            return (<Redirect to="/page" />);
+            return (<Redirect to="/" />);
         }
         return (
             <div>
