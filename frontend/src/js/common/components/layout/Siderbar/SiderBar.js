@@ -17,9 +17,8 @@ class Siderbar extends Component {
                             <div className="d-table m-auto">
                                 <img id="main-logo"
                                     className="d-inline-block align-top mr-1"
-                                    src="https://designrevision.com/demo/shards-dashboard-lite-react/static/media/shards-dashboards-logo.60a85991.svg"
-                                    alt="Shards Dashboard" />
-                                    <span className="d-none d-md-inline ml-1">Ciancoders</span>
+                                    src={require('assets/img/logo.png')}
+                                    alt="Logo" />
                             </div>
                         </a>
                         <a  className="toggle-sidebar d-sm-inline d-md-none d-lg-none"
@@ -28,16 +27,6 @@ class Siderbar extends Component {
                         </a>
                     </nav>
                 </div>
-                {/*<form className="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none"
-                >
-                    <div className="ml-3 input-group input-group-seamless">
-                        <div className="input-group-prepend"><span className="input-group-text"><i
-                            className="material-icons">search</i></span><input
-                            placeholder="Search for something..."
-                            aria-label="Search"
-                            className="navbar-search form-control"/></div>
-                    </div>
-                </form>*/}
                 <div className="nav-wrapper">
                     <ul className="nav--no-borders flex-column nav">
                         <li className="nav-item">
@@ -45,7 +34,7 @@ class Siderbar extends Component {
                                 <div className="d-inline-block item-icon-wrapper">
                                     <i className="material-icons">edit</i>
                                 </div>
-                                <span>Blog Dashboard</span>
+                                <span>Home</span>
                             </NavLink>
                         </li>
                         <li className="nav-item">
@@ -53,7 +42,7 @@ class Siderbar extends Component {
                                 <div className="d-inline-block item-icon-wrapper">
                                     <i className="material-icons">vertical_split</i>
                                 </div>
-                                <span>Blog Posts</span>
+                                <span>Pagina ejemplo</span>
                             </NavLink>
                         </li>
                     </ul>
