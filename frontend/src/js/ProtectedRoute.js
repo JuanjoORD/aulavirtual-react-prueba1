@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { logOut } from "./redux/modules/login";
 
 // maquetado base
 import SiderBar from './common/components/layout/Siderbar/SiderBar';
@@ -11,7 +13,7 @@ function isAuthenticated() {
     return localStorage.getItem("token");
 }
 
-class ProtectedRoute extends Component {
+class PrivateRouteBase extends Component {
     constructor(props) {
         super(props);
 
@@ -26,14 +28,14 @@ class ProtectedRoute extends Component {
 
 
     render() {
-        const { component: Component, ...rest } = this.props;
+        const { component: Component, logOut, ...rest } = this.props;
         return (
             <Route
                 {...rest}
                 render={props =>
                     isAuthenticated() ? (
                         <div>
-                            <SiderBar toggleOpen={this.state.toggleOpen} navToggle={this.navToggle} />
+                            <SiderBar toggleOpen={this.state.toggleOpen} navToggle={this.navToggle} logOut={logOut} />
                             <main className="main-content p-0 col-sm-12 col-md-9 offset-md-3 col-lg-10 offset-lg-2">
                                 <div className="main-navbar bg-white sticky-top">
                                     <div className="p-0 container">
@@ -60,4 +62,14 @@ class ProtectedRoute extends Component {
     }
 }
 
+const mstp = state => ({ ...state });
+
+const mdtp = { logOut };
+
+const ProtectedRoute = connect(
+    mstp,
+    mdtp
+)(PrivateRouteBase);
+
 export default ProtectedRoute;
+
