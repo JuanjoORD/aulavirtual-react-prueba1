@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { Component } from 'react';
+import {Link, Redirect} from 'react-router-dom';
 import LoginForm from './LoginForm';
 import './login.css';
 
-class Login extends PureComponent {
+class Login extends Component {
     static propTypes = {
         onSubmit: PropTypes.func.isRequired,
     };
@@ -29,6 +29,7 @@ class Login extends PureComponent {
                     <div className="card card-login col-lg-3 col-md-4 col-11">
                         <h5 className="text-center pv">INGRESAR</h5>
                         <LoginForm onSubmit={onSubmit} />
+                        <span>¿No tienes cuenta?&nbsp;<Link to="/registro">Registrate aquí</Link></span>
                     </div>
                 </div>
             </div>

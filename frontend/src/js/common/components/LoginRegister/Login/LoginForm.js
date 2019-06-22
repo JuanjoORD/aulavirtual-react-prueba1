@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { renderField } from '../Utils/renderField';
+import { validate, validators } from 'validate-redux-form';
+import { renderField } from '../../Utils/renderField';
 
 const LoginForm = (props) => {
     const { handleSubmit, pristine, reset, submitting } = props;
@@ -29,4 +30,10 @@ const LoginForm = (props) => {
 
 export default reduxForm({
     form: 'login', // a unique identifier for this form
+    validate: (data) => {
+        return validate(data, {
+            username: validators.exists()('Este campo es requerido'),
+            password: validators.exists()('Este campo es requerido'),
+        });
+    },
 })(LoginForm);

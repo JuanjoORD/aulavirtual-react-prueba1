@@ -4,9 +4,10 @@ import {
     Switch,
     Redirect,
 } from 'react-router-dom';
-import Login from './common/components/Login/LoginContainer';
+import { NotificationContainer } from 'react-notifications';
+
+import { Login, Registro } from './common/components/LoginRegister';
 import Demo from './common/components/Demo/Demo';
-import Demo2 from './common/components/Demo/Demo2';
 import ProtectedRoute from './ProtectedRoute';
 import Examples from './common/components/Examples/Examples';
 import NotFound from './common/components/layout/NotFound/NotFound';
@@ -22,10 +23,12 @@ module.exports = (
         <div className="container__content">
             <Switch>
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/registro" component={Registro} />
                 <ProtectedRoute exact path="/" component={Demo} />
                 <ProtectedRoute exact path="/page2" component={Examples} />
                 <Route component={NotFound} />
             </Switch>
         </div>
+        <NotificationContainer />
     </div>
 );
