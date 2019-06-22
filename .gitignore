@@ -9,3 +9,4 @@ npm-debug.log
 .eslintcache
 /.env
 *.pyc
+db.sqlite3
