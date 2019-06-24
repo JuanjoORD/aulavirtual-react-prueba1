@@ -144,6 +144,7 @@ export default {
       "node_modules"
     ],
     alias: {
+        api$: path.resolve(__dirname, 'src/js/utility/api.js'),
     },
   },
   plugins: [

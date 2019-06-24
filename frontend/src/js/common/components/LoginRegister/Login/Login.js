@@ -1,16 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { Component } from 'react';
+import {Link, Redirect} from 'react-router-dom';
 import LoginForm from './LoginForm';
 import './login.css';
 
-class Login extends PureComponent {
+class Login extends Component {
     static propTypes = {
-        nameError: PropTypes.bool.isRequired,
-        passError: PropTypes.bool.isRequired,
         onSubmit: PropTypes.func.isRequired,
-        hasNameError: PropTypes.func.isRequired,
-        hasPassError: PropTypes.func.isRequired,
     };
 
     componentDidMount(props) {
@@ -20,7 +16,7 @@ class Login extends PureComponent {
     render() {
         const { onSubmit } = this.props;
         if (localStorage.getItem('token')) {
-            return (<Redirect to="/page" />);
+            return (<Redirect to="/" />);
         }
         return (
             <div>
@@ -29,12 +25,11 @@ class Login extends PureComponent {
                     <p>Página de login</p>
                 </div>
                 <br />
-                <div className="row login-wrapper">
+                <div className="login-wrapper">
                     <div className="card card-login col-lg-3 col-md-4 col-11">
                         <h5 className="text-center pv">INGRESAR</h5>
                         <LoginForm onSubmit={onSubmit} />
-                        <br />
-                        <p>Regresar a <a href="/">Home</a></p>
+                        <span>¿No tienes cuenta?&nbsp;<Link to="/registro">Registrate aquí</Link></span>
                     </div>
                 </div>
             </div>

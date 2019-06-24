@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { actions } from '../../../redux/modules/login';
+import { actions } from '../../../../redux/modules/cuenta/login';
 import Login from './Login';
 
 
