@@ -16,6 +16,7 @@ import '../assets/fonts/fonts.css';
 
 require('../../node_modules/font-awesome/css/font-awesome.css');
 require('../../node_modules/bootstrap/dist/css/bootstrap.css');
+import 'bootstrap/dist/css/bootstrap.min.css';
 require('../style/index.css');
 
 module.exports = (
