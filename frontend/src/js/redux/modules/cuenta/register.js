@@ -27,7 +27,7 @@ export const onSubmit = (data = {}) => (dispatch) => {
     setLoader(true);
     api.post('user', data).then(() => {
         dispatch(push("/login"));
-        NotificationManager.success('Cuenta creada con éxito, puedes iniciar sesión', 'Éxito', 0);
+        NotificationManager.success('Cuenta creada con éxito, puedes iniciar sesión', 'Éxito', 3000);
     }).catch(() => {
         NotificationManager.error('Credenciales incorrectas, vuelva a intentar', 'ERROR', 0);
     }).finally(() => {
