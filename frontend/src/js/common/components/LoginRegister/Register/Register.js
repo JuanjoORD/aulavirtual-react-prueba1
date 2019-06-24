@@ -24,7 +24,7 @@ class Registro extends Component {
                     <p>Página de registro</p>
                 </div>
                 <br />
-                <div className="row login-wrapper">
+                <div className="login-wrapper">
                     <div className="card card-login col-lg-3 col-md-4 col-11">
                         <h5 className="text-center pv">REGISTRO</h5>
                         <RegisterForm onSubmit={onSubmit} />
