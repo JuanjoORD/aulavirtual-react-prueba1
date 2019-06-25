@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import LoginForm from './LoginForm';
 import './login.css';
+import LoadMask from "Utils/LoadMask/LoadMask";
 
 class Login extends Component {
     static propTypes = {
@@ -14,7 +15,7 @@ class Login extends Component {
     }
 
     render() {
-        const { onSubmit } = this.props;
+        const { onSubmit, loader } = this.props;
         if (localStorage.getItem('token')) {
             return (<Redirect to="/" />);
         }
@@ -28,8 +29,10 @@ class Login extends Component {
                 <div className="login-wrapper">
                     <div className="card card-login col-lg-3 col-md-4 col-11">
                         <h5 className="text-center pv">INGRESAR</h5>
-                        <LoginForm onSubmit={onSubmit} />
-                        <span>¿No tienes cuenta?&nbsp;<Link to="/registro">Registrate aquí</Link></span>
+                        <LoadMask loading={loader} light>
+                            <LoginForm onSubmit={onSubmit} />
+                            <span>¿No tienes cuenta?&nbsp;<Link to="/registro">Registrate aquí</Link></span>
+                        </LoadMask>
                     </div>
                 </div>
             </div>

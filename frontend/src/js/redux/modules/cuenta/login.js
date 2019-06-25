@@ -24,14 +24,14 @@ export const setLoader = loader => ({
 // ------------------------------------
 
 export const onSubmit = (data = {}) => (dispatch, getStore) => {
-    setLoader(true);
+    dispatch(setLoader(true));
     api.post('token', data).then((response) => {
         localStorage.setItem('token', response.token);
         dispatch(push("/"));
     }).catch(() => {
         NotificationManager.error('Credenciales incorrectas, vuelva a intentar', 'ERROR', 0);
     }).finally(() => {
-        dispatch({ type: LOADER, loader: false });
+        dispatch(setLoader(false));
     });
 };
 

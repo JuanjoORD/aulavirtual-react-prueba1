@@ -37,8 +37,8 @@ class LoadMask extends Component {
               })}
             >
               <Loader
-                type="Rings"
-                color="#FB885F"
+                type="Triangle"
+                color="#3AC0FF"
                 height="100"
                 width="100"
               />
