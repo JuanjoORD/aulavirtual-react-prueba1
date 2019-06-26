@@ -1,35 +1,12 @@
 const request = require('superagent');
 
-let EXPIRACION = new Date();
-if (localStorage.getItem('token_expire')) {
-    const fecha = localStorage.getItem('token_expire').split(",");
-    EXPIRACION = new Date(fecha[0], fecha[1], fecha[2], fecha[3], fecha[4]);
-}
-
-export let NEXT_PATH;
-
-export function updateExpiracion(force = false) {
-    if ((EXPIRACION > new Date()) || force) {
-        const fecha = new Date();
-        fecha.setMinutes(fecha.getMinutes() + 30);
-        EXPIRACION = fecha;
-        localStorage.setItem('token_expire', `${fecha.getFullYear()},${fecha.getMonth()},${fecha.getDate()}, ${fecha.getHours()}, ${fecha.getMinutes()}`);
-    }
-}
-
 
 /**
  * Funcion para obtener el token
  * */
 function getToken() {
-    const token = sessionStorage.getItem('token');
+    const token = localStorage.getItem('token');
     if (token) {
-        if (EXPIRACION < new Date()) {
-            NEXT_PATH = window.location.hash.split("#")[1];
-            return false;
-        } else {
-            updateExpiracion();
-        }
         return `Token ${token}`;
     }
     return false;
@@ -70,7 +47,7 @@ export function makeUrl(path, params = {}) {
 function errorHandler(response) {
     // Estado 401 o 403 redirigen al login
     if (response.statusCode === 401 || response.statusCode === 403) {
-        sessionStorage.removeItem('token');
+        localStorage.removeItem('token');
         window.location.assign('/#/login');
     } else {
         // console.log(response.body);
