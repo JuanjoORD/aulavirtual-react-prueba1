@@ -3,8 +3,9 @@ import { push } from "react-router-redux";
 import { NotificationManager } from "react-notifications";
 import { api } from "api";
 
-const SUBMIT = 'SUBMIT';
+const SUBMIT = 'LOGIN_SUBMIT';
 const LOADER = 'LOGIN_LOADER';
+const ME = 'LOGIN_ME';
 
 export const constants = {
     SUBMIT,
@@ -17,6 +18,11 @@ export const constants = {
 export const setLoader = loader => ({
     type: LOADER,
     loader,
+});
+
+export const setMe = me => ({
+    type: ME,
+    me,
 });
 
 // ------------------------------------
@@ -33,6 +39,12 @@ export const onSubmit = (data = {}) => (dispatch, getStore) => {
     }).finally(() => {
         dispatch(setLoader(false));
     });
+};
+
+export const getMe = () => (dispatch) => {
+    api.get('/user/me').then(result => dispatch(setMe(me)))
+        .catch(() => {
+    }).finally(() => {});
 };
 
 export const logOut = () => (dispatch) => {
@@ -52,10 +64,17 @@ export const reducers = {
             loader,
         };
     },
+    [ME]: (state, { me }) => {
+        return {
+            ...state,
+            me,
+        };
+    },
 };
 
 export const initialState = {
     loader: false,
+    me: {},
 };
 
 export default handleActions(reducers, initialState);
