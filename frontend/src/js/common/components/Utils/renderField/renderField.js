@@ -102,18 +102,23 @@ export const renderCurrency = ({
 };
 
 export const renderSwitch = ({
-                                 input, meta: { touched, error },
+                                 input, meta: { touched, error }, label, disabled,
                              }) => {
     const invalid = touched && error;
     return (
-        <div>
+        <div className="d-flex align-items-center">
             <Switch
+                onColor="#007bff"
+                height={18}
+                width={36}
+                disabled={disabled}
                 onChange={(value) => {
                     input.onChange(value);
                 }}
                 checked={input.value ? input.value : false}
-                id="normal-switch"
+                // id="normal-switch"
             />
+            &nbsp;{label}
             {invalid && (
                 <div className="invalid-feedback">
                     {error}
@@ -127,23 +132,18 @@ export const renderFieldCheck = ({ input, label, value, disabled, type, meta: { 
     const invalid = touched && error;
     return (
         <React.Fragment>
-            <label className="custom-control custom-checkbox" >
-                <input
-                    type="checkbox"
-                    className={classNames('custom-control-input', { 'is-invalid': invalid })}
-                    {...input}
-                    disabled={disabled}
-                />
-                <label
-                    className="custom-control-label"
-                    aria-hidden="true"
-                    onClick={() => {
-                        // if (!disabled)
-                            input.onChange(!input.value)}
-                    }
-                />
-                <span className="custom-control-description">{label}</span>
-            </label>
+            <div className="checkbox c-checkbox">
+                <label className="needsclick">
+                    <input
+                        type="checkbox"
+                        disabled={disabled}
+                        {...input}
+                        className={classNames('', { 'is-invalid': invalid })}
+                    />
+                    <span className="fa fa-check" />
+                &nbsp;{label}
+                </label>
+            </div>
             {invalid && (
                 <div className="invalid-feedback">
                     {error}
@@ -157,24 +157,18 @@ export const renderFieldRadio = ({ input, label, value, disabled, meta: { touche
     const invalid = touched && error;
     return (
         <React.Fragment>
-            <label className="custom-control custom-radio">
-                <input
-                    disabled={disabled}
-                    type="radio"
-                    {...input}
-                    value={value}
-                    className={classNames('custom-control-input', { 'is-invalid': invalid })}
-                />
-                <label
-                    className="custom-control-label"
-                    aria-hidden="true"
-                    onClick={() => {
-                        if (!disabled)
-                            input.onChange(!input.value)}
-                    }
-                />
-                <span className="custom-control-description">{label}</span>
-            </label>
+            <div className="radio c-radio c-radio-nofont d-flex">
+                <label className="negro font-weight-normal">
+                    <input
+                        type="radio"
+                        disabled={disabled}
+                        {...input}
+                        className={classNames('', { 'is-invalid': invalid })}
+                    />
+                    <span />
+                    &nbsp;{label}
+                </label>
+            </div>
             {invalid && (
                 <div className="invalid-feedback">
                     {error}

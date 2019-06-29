@@ -23,7 +23,7 @@ class LoadMask extends Component {
 
     render() {
       const {
-        children, radius, dark, light, blur, loading,
+        children, radius, dark, light, blur, loading, type="Triangle"
       } = this.props;
 
       return (
@@ -37,12 +37,12 @@ class LoadMask extends Component {
               })}
             >
               <Loader
-                type="Triangle"
+                type={type}
                 color="#3AC0FF"
                 height="100"
                 width="100"
               />
-              <p>Cargando...</p>
+              {/*<p>Cargando...</p>*/}
             </div>
           )}
           <div

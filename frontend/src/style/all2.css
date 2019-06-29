@@ -5263,7 +5263,7 @@ a.text-accent:focus, a.text-accent:hover {
     position: fixed;
     height: 100vh;
     background: #fff;
-    z-index: 1070;
+    z-index: 107000;
     will-change: transform;
     transition: -webkit-transform .2s ease-in-out;
     -webkit-transition: -webkit-transform .2s ease-in-out;

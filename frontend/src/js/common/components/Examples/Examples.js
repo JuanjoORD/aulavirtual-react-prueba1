@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { renderFieldCheck, renderFieldRadio } from '../Utils/renderField/renderField';
+import { renderFieldCheck, renderFieldRadio, renderSwitch } from '../Utils/renderField/renderField';
+import LoadMasks from "./LoadMasks";
+import Buttons from "./Buttons";
+
 
 class Examples extends Component {
     render() {
@@ -16,7 +19,6 @@ class Examples extends Component {
                         <div className="mb-4 card card-small">
                             <div className="border-bottom card-header"><h6 className="m-0">Form Inputs</h6></div>
                             <div className="p-0 px-3 pt-3">
-
                                 <div className="row">
                                     <div className="mb-3 col-sm-12 col-md-4">
                                         <strong className="text-muted d-block mb-2">Checkboxes</strong>
@@ -59,12 +61,28 @@ class Examples extends Component {
                                         </fieldset>
                                     </div>
                                     <div className="mb-3 col-sm-12 col-md-4">
-                                        <strong className="text-muted d-block mb-2">Checkboxes</strong>
-
+                                        <strong className="text-muted d-block mb-2">Toggle Switches</strong>
+                                        <fieldset>
+                                            <Field
+                                                name="default_switch"
+                                                label="Default"
+                                                value="default"
+                                                component={renderSwitch}
+                                            />
+                                            <Field
+                                                disabled
+                                                name="disabled_switch"
+                                                label="Disabled"
+                                                value="disabled"
+                                                component={renderSwitch}
+                                            />
+                                        </fieldset>
                                     </div>
                                 </div>
                             </div>
+                            <Buttons />
                         </div>
+                        <LoadMasks />
                     </div>
                     <div className="mb-4 col-lg-4">
                         df
