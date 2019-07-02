@@ -1,4 +1,5 @@
 @import "configs/color";
+@import "../../node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.css";
 @import "bootstrap_reset.css";
 
 .container {

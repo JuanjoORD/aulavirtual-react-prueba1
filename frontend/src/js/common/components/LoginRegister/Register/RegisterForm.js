@@ -8,6 +8,14 @@ const RegisterForm = (props) => {
     return (
         <form name="loginForm" className="form-validate mb-lg" onSubmit={handleSubmit}>
             <div className="form-group has-feedback">
+                <label htmlFor="first_name">Nombre</label>
+                <Field name="first_name" label="Nombre" component={renderField} type="text" className="form-control" />
+            </div>
+            <div className="form-group has-feedback">
+                <label htmlFor="last_name">Apellido</label>
+                <Field name="last_name" label="Apellido" component={renderField} type="text" className="form-control" />
+            </div>
+            <div className="form-group has-feedback">
                 <label htmlFor="username">Usuario</label>
                 <Field name="username" label="Usuario" component={renderField} type="text" className="form-control" />
             </div>
@@ -51,6 +59,8 @@ export default reduxForm({
                matchPassword(data.password, data.confirmPassword)()('Las contraseñas no coinciden')
             ),
             username: validators.exists()('Este campo es requerido'),
+            first_name: validators.exists()('Este campo es requerido'),
+            last_name: validators.exists()('Este campo es requerido'),
             password: validators.exists()('Este campo es requerido'),
         });
     },

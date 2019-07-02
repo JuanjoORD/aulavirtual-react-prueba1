@@ -9,7 +9,7 @@ from api.serializers import UserSerializer
 
 
 class UserViewset(viewsets.ModelViewSet):
-    queryset = User.objects.filter(is_staff=True, is_active=True)
+    queryset = User.objects.filter(is_active=True)
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
     filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
