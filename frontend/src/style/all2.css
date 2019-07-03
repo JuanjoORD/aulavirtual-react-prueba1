@@ -230,7 +230,7 @@ pre {
 }
 
 .table td, .table th {
-    padding: .75rem
+    padding: .15rem .75rem
 }
 
 .table .table {
@@ -1391,7 +1391,6 @@ form label:hover, select.form-control:hover {
 }
 
 i.material-icons {
-    font-size: inherit;
     position: relative
 }
 
