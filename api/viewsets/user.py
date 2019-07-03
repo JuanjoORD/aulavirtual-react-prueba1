@@ -5,17 +5,24 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
 
-from api.serializers import UserSerializer
+from api.serializers import UserSerializer, UserReadSerializer
 
 
 class UserViewset(viewsets.ModelViewSet):
     queryset = User.objects.filter(is_active=True)
-    serializer_class = UserSerializer
+
     permission_classes = [AllowAny]
     filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     filter_fields = ("username", "first_name")
     search_fields = ("username", "first_name")
     ordering_fields = ("username", "first_name")
+
+    def get_serializer_class(self):
+        """Define serializer for API"""
+        if self.action == 'list' or self.action == 'retrieve':
+            return UserReadSerializer
+        else:
+            return UserSerializer
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
