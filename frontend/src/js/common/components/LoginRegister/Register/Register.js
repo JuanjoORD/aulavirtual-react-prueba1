@@ -19,7 +19,7 @@ class Registro extends Component {
             return (<Redirect to="/" />);
         }
         return (
-            <div>
+            <div className="blue-gradient-bg">
                 <div className="d-flex flex-column align-items-center pt-3 bienvenida">
                     <h1 className="text-center">Bienvenido a CianStarter</h1>
                     <p>Página de registro</p>

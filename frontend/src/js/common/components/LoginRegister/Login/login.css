@@ -31,7 +31,8 @@
     align-items: center;
     justify-content: center;
 }
-body{
+.blue-gradient-bg{
+    height: 100vh;
     background: #007bff;
     background: linear-gradient(to right, #0062E6, #3ac1ff);
 }

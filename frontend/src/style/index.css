@@ -26,6 +26,10 @@ h1, h2 {
   font-family: YourFavoriteFont;
 }
 
+body {
+    background-color: #F2F2F2;
+}
+
 /*Style preloader*/
 .loader-container{
   min-height: 140px;
