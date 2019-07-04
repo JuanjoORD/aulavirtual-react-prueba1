@@ -1,16 +1,13 @@
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { Component } from 'react';
+import {Link, Redirect} from 'react-router-dom';
 import LoginForm from './LoginForm';
 import './login.css';
+import LoadMask from "Utils/LoadMask/LoadMask";
 
-class Login extends PureComponent {
+class Login extends Component {
     static propTypes = {
-        nameError: PropTypes.bool.isRequired,
-        passError: PropTypes.bool.isRequired,
         onSubmit: PropTypes.func.isRequired,
-        hasNameError: PropTypes.func.isRequired,
-        hasPassError: PropTypes.func.isRequired,
     };
 
     componentDidMount(props) {
@@ -18,23 +15,24 @@ class Login extends PureComponent {
     }
 
     render() {
-        const { onSubmit } = this.props;
+        const { onSubmit, loader } = this.props;
         if (localStorage.getItem('token')) {
-            return (<Redirect to="/page" />);
+            return (<Redirect to="/" />);
         }
         return (
-            <div>
+            <div className="blue-gradient-bg">
                 <div className="d-flex flex-column align-items-center pt-3 bienvenida">
                     <h1 className="text-center">Bienvenido a CianStarter</h1>
                     <p>Página de login</p>
                 </div>
                 <br />
-                <div className="row login-wrapper">
+                <div className="login-wrapper">
                     <div className="card card-login col-lg-3 col-md-4 col-11">
                         <h5 className="text-center pv">INGRESAR</h5>
-                        <LoginForm onSubmit={onSubmit} />
-                        <br />
-                        <p>Regresar a <a href="/">Home</a></p>
+                        <LoadMask loading={loader} light>
+                            <LoginForm onSubmit={onSubmit} />
+                            <span>¿No tienes cuenta?&nbsp;<Link to="/registro">Registrate aquí</Link></span>
+                        </LoadMask>
                     </div>
                 </div>
             </div>

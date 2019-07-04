@@ -48,6 +48,11 @@ webpackConfig.devServer = {
     target: 'http://localhost:8000/',
     secure: false,
     changeOrigin: true,
+  },{
+    path: '/media',
+    target: 'http://localhost:8000/',
+    secure: false,
+    changeOrigin: true,
   }],
 };
 
