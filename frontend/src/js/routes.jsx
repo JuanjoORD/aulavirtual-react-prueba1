@@ -17,6 +17,7 @@ import '../assets/fonts/fonts.css';
 require('../../node_modules/font-awesome/css/font-awesome.css');
 require('../../node_modules/bootstrap/dist/css/bootstrap.css');
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Grids from "./common/components/Examples/Grids";
 require('../style/index.css');
 
 module.exports = (
@@ -27,6 +28,7 @@ module.exports = (
                 <Route exact path="/registro" component={Registro} />
                 <ProtectedRoute exact path="/" component={Demo} />
                 <ProtectedRoute exact path="/page2" component={Examples} />
+                <ProtectedRoute exact path="/grids" component={Grids} />
                 <Route component={NotFound} />
             </Switch>
         </div>

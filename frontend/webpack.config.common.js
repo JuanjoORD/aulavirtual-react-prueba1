@@ -145,6 +145,7 @@ export default {
     ],
     alias: {
         api$: path.resolve(__dirname, 'src/js/utility/api.js'),
+        Utils: path.resolve(__dirname, 'src/js/common/components/Utils/'),
     },
   },
   plugins: [

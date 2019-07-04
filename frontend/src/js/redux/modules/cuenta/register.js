@@ -3,8 +3,8 @@ import { push } from "react-router-redux";
 import { NotificationManager } from "react-notifications";
 import { api } from "api";
 
-const SUBMIT = 'SUBMIT';
-const LOADER = 'LOGIN_LOADER';
+const SUBMIT = 'REGISTER_SUBMIT';
+const LOADER = 'REGISTER_LOADER';
 
 export const constants = {
     SUBMIT,
@@ -24,14 +24,14 @@ export const setLoader = loader => ({
 // ------------------------------------
 
 export const onSubmit = (data = {}) => (dispatch) => {
-    setLoader(true);
+    dispatch(setLoader(true));
     api.post('user', data).then(() => {
         dispatch(push("/login"));
         NotificationManager.success('Cuenta creada con éxito, puedes iniciar sesión', 'Éxito', 3000);
     }).catch(() => {
         NotificationManager.error('Credenciales incorrectas, vuelva a intentar', 'ERROR', 0);
     }).finally(() => {
-        dispatch({ type: LOADER, loader: false });
+        dispatch(setLoader(false));
     });
 };
 

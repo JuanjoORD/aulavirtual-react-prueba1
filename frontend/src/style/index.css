@@ -1,4 +1,5 @@
 @import "configs/color";
+@import "../../node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.css";
 @import "bootstrap_reset.css";
 
 .container {
@@ -23,6 +24,10 @@
 
 h1, h2 {
   font-family: YourFavoriteFont;
+}
+
+body {
+    background-color: #F2F2F2;
 }
 
 /*Style preloader*/

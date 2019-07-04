@@ -2531,7 +2531,7 @@ pre code {
 
 .table td, .table th {
     padding: .75rem;
-    vertical-align: top;
+    vertical-align: middle;
     border-top: 1px solid #dee2e6
 }
 
@@ -8399,7 +8399,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
         position: -webkit-sticky;
         position: sticky;
         top: 0;
-        z-index: 1020
+        z-index: 102000
     }
 }
 

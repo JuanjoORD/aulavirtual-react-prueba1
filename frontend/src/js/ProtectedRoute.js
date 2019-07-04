@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { logOut } from "./redux/modules/cuenta/login";
+import { logOut, getMe } from "./redux/modules/cuenta/login";
 
 // maquetado base
 import SiderBar from './common/components/layout/Siderbar/SiderBar';
@@ -20,6 +20,10 @@ class PrivateRouteBase extends Component {
         this.state = {
             toggleOpen: true,
         };
+    }
+
+    componentWillMount() {
+        this.props.getMe();
     }
 
     navToggle = () => {
@@ -64,7 +68,7 @@ class PrivateRouteBase extends Component {
 
 const mstp = state => ({ ...state });
 
-const mdtp = { logOut };
+const mdtp = { logOut, getMe };
 
 const ProtectedRoute = connect(
     mstp,
