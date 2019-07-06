@@ -78,7 +78,7 @@ export const renderNumber = ({
 };
 
 export const renderCurrency = ({
-                                   input, meta: { touched, error }, prefix="Q "
+                                   input, meta: { touched, error }, prefix="Q ", placeholder,
                                }) => {
     const invalid = touched && error;
     return (
@@ -87,6 +87,7 @@ export const renderCurrency = ({
                 className={classNames('form-control', { 'is-invalid': invalid })}
                 decimalScale={2}
                 fixedDecimalScale
+                placeholder={placeholder}
                 value={input.value}
                 thousandSeparator
                 prefix={prefix}

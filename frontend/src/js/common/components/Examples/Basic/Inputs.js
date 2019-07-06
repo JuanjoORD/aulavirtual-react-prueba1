@@ -73,10 +73,8 @@ class Inputs extends Component {
                             <label htmlFor="number_field">Currency Field</label>
                             <Field
                                 name="currency_field"
-                                decimalScale={2}
-                                prefix="E "
-                                placeholder="Number Field With Prefix"
-                                component={renderNumber}
+                                placeholder="Currency Field"
+                                component={renderCurrency}
                             />
                         </div>
                         <div className="col-md-6 col-12 mb-2">
