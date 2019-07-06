@@ -6,14 +6,14 @@ import Switch from 'react-switch';
 
 
 export const renderField = ({
-                                input, label, type, meta: { touched, error },
+                                input, placeholder, type, meta: { touched, error },
                             }) => {
     const invalid = touched && error;
     return (
         <div>
             <input
                 {...input}
-                placeholder={label}
+                placeholder={placeholder}
                 type={type}
                 className={classNames('form-control', { 'is-invalid': invalid })}
             />
@@ -27,14 +27,14 @@ export const renderField = ({
 };
 
 export const renderTextArea = ({
-                                   input, label, rows, meta: { touched, error },
+                                   input, placeholder, rows, meta: { touched, error },
                                }) => {
     const invalid = touched && error;
     return (
         <div>
       <textarea
           {...input}
-          placeholder={label}
+          placeholder={placeholder}
           style={{ resize: 'none' }}
           rows={rows || 3}
           className={classNames('form-control', { 'is-invalid': invalid })}
@@ -49,14 +49,16 @@ export const renderTextArea = ({
 };
 
 export const renderNumber = ({
-                                 input, decimalScale, meta: { touched, error }, prefix="", suffix=""
+                                 input, decimalScale, placeholder, meta: { touched, error }, prefix="", suffix="", numberFormat,
                              }) => {
     const invalid = touched && error;
     return (
         <div>
             <NumberFormat
+                placeholder={placeholder}
                 className={classNames('form-control', { 'is-invalid': invalid })}
                 decimalScale={decimalScale || 0}
+                format={numberFormat}
                 fixedDecimalScale
                 value={input.value}
                 thousandSeparator

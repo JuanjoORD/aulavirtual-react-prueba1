@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { renderFieldCheck, renderFieldRadio, renderSwitch } from '../Utils/renderField/renderField';
+import { renderFieldCheck, renderFieldRadio, renderSwitch } from '../../Utils/renderField/renderField';
 import LoadMasks from "./LoadMasks";
 import Buttons from "./Buttons";
+import Inputs from "./Inputs";
 
 
 class Examples extends Component {
@@ -81,6 +82,7 @@ class Examples extends Component {
                                 </div>
                             </div>
                             <Buttons />
+                            <Inputs />
                         </div>
                         <LoadMasks />
                     </div>

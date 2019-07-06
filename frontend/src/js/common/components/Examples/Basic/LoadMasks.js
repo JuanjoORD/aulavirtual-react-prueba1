@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoadMask from "../Utils/LoadMask/LoadMask";
+import LoadMask from "../../Utils/LoadMask/LoadMask";
 
 
 class LoadMasks extends Component {

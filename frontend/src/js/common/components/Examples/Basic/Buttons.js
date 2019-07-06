@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 
-class LoadMasks extends Component {
+class Buttons extends Component {
     render() {
         return (
             <div className="border-top p-0 px-3 pt-3">
@@ -62,4 +62,4 @@ class LoadMasks extends Component {
     }
 }
 
-export default LoadMasks;
+export default Buttons;
