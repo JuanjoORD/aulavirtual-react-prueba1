@@ -1,5 +1,5 @@
 import React from 'react';
-import Select, { AsyncCreatable, Async } from 'react-select';
+import Select, { Creatable, Async } from 'react-select';
 import NumberFormat from 'react-number-format';
 import classNames from 'classnames';
 import Switch from 'react-switch';
@@ -184,7 +184,10 @@ export const renderFieldRadio = ({ input, label, value, disabled, meta: { touche
 
 export const SelectField = (
     {
+        input,
+        disabled,
         isClearable,
+        isMulti,
         isSearchable,
         options,
         placeholder,
@@ -205,12 +208,90 @@ export const SelectField = (
                 isClearable={isClearable}
                 className={classNames('react-select-container', { 'is-invalid': invalid })}
                 backspaceRemovesValue={false}
+                isMulti={isMulti}
                 isSearchable={isSearchable}
                 options={_options}
-                labelKey={labelKey}
-                valueKey={valueKey}
                 placeholder={placeholder}
-                onChange={(e) => { input.onChange(e ? e[valueKey] : null); }}
+                onChange={(e) => { input.onChange(e ? e : null); }}
+                value={input.value}
+                isDisabled={disabled}
+            />
+            {invalid && (
+                <div className="invalid-feedback">
+                    {error}
+                </div>
+            )}
+        </React.Fragment>
+    )
+};
+
+
+export const AsyncSelectField = (
+    {
+        input,
+        disabled,
+        isClearable,
+        isSearchable,
+        loadOptions,
+        placeholder,
+        meta: { touched, error }
+    }) => {
+
+    const invalid = touched && error;
+
+    return (
+        <React.Fragment>
+            <Async
+                isClearable={isClearable}
+                cacheOptions
+                className={classNames('react-select-container', { 'is-invalid': invalid })}
+                backspaceRemovesValue={false}
+                isSearchable={isSearchable}
+                defaultOptions
+                loadOptions={loadOptions}
+                placeholder={placeholder}
+                onChange={(e) => { input.onChange(e ? e : null); }}
+                value={input.value}
+                isDisabled={disabled}
+            />
+            {invalid && (
+                <div className="invalid-feedback">
+                    {error}
+                </div>
+            )}
+        </React.Fragment>
+    )
+};
+
+export const CreatableSelectField = (
+    {
+        input,
+        disabled,
+        isClearable,
+        isSearchable,
+        options,
+        placeholder,
+        labelKey="label",
+        valueKey="value",
+        meta: { touched, error }
+    }) => {
+
+    const invalid = touched && error;
+    const _options = [];
+    options.forEach(option => {
+        _options.push({...option, label: option[labelKey], value: option[valueKey]});
+    });
+
+    return (
+        <React.Fragment>
+            <Creatable
+                isClearable={isClearable}
+                className={classNames('react-select-container', { 'is-invalid': invalid })}
+                backspaceRemovesValue={false}
+                isSearchable={isSearchable}
+                options={_options}
+                placeholder={placeholder}
+                onChange={(e) => { input.onChange(e ? e : null); }}
                 value={input.value}
                 isDisabled={disabled}
             />

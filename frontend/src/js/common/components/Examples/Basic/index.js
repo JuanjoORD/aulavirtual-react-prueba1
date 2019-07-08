@@ -4,6 +4,7 @@ import { renderFieldCheck, renderFieldRadio, renderSwitch } from '../../Utils/re
 import LoadMasks from "./LoadMasks";
 import Buttons from "./Buttons";
 import Inputs from "./Inputs";
+import Selects from "./Selects";
 
 
 class Examples extends Component {
@@ -87,7 +88,10 @@ class Examples extends Component {
                         <LoadMasks />
                     </div>
                     <div className="mb-4 col-lg-4">
-                        df
+                        <div className="mb-4 card card-small">
+                            <div className="border-bottom card-header"><h6 className="m-0">Select Form Inputs</h6></div>
+                            <Selects />
+                        </div>
                     </div>
                 </div>
             </form>

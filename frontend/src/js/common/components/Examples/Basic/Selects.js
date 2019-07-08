@@ -1,11 +1,31 @@
 import React, {Component} from 'react';
 import { Field } from "redux-form";
 import {
-    renderCurrency,
-    renderNumber,
-    renderField,
-    renderTextArea,
+    SelectField,
+    AsyncSelectField,
+    CreatableSelectField,
 } from "Utils/renderField/renderField";
+
+
+const exampleOptions = [
+    {"label": "Primary", "value": "Primary"},
+    {"label": "Secondary", "value": "Secondary"},
+    {"label": "Success", "value": "Success"},
+    {"label": "Danger", "value": "Danger"},
+    {"label": "Warning", "value": "Warning"},
+];
+
+const filterOptions = (inputValue) => {
+    return exampleOptions.filter(i =>
+        i.label.toLowerCase().includes(inputValue.toLowerCase())
+    );
+};
+
+const loadOptions = (inputValue, callback) => {
+    setTimeout(() => {
+        callback(filterOptions(inputValue));
+    }, 1000);
+};
 
 
 class Inputs extends Component {
@@ -13,81 +33,39 @@ class Inputs extends Component {
         return (
             <div className="border-top p-0 px-3 pt-3">
                 <div className="mb-3 col-12">
-                    <strong className="text-muted d-block mb-2">Inputs</strong>
+                    <strong className="text-muted d-block mb-2">Select Inputs</strong>
                     <div className="row">
-                        <div className="col-md-6 col-12 mb-2">
-                            <label htmlFor="normal_field">Normal Field</label>
+                        <div className="col-12 mb-2">
+                            <label htmlFor="select_field">Select</label>
                             <Field
-                                name="normal_field"
-                                placeholder="Normal Field"
-                                component={renderField}
+                                name="select_field"
+                                options={exampleOptions}
+                                component={SelectField}
                             />
                         </div>
-                        <div className="col-md-6 col-12 mb-2">
-                            <label htmlFor="normal_field">Password Field</label>
+                        <div className="col-12 mb-2">
+                            <label htmlFor="multi_select_field">Multi Select</label>
                             <Field
-                                name="password_field"
-                                type="password"
-                                placeholder="Password Field"
-                                component={renderField}
+                                name="multi_select_field"
+                                isMulti
+                                options={exampleOptions}
+                                component={SelectField}
                             />
                         </div>
-                        <div className="col-md-6 col-12 mb-2">
-                            <label htmlFor="number_field">Number Field</label>
+                        <div className="col-12 mb-2">
+                            <label htmlFor="async_select_field">Async</label>
                             <Field
-                                name="number_field"
-                                placeholder="Number Field"
-                                component={renderNumber}
+                                name="async_select_field"
+                                loadOptions={loadOptions}
+                                component={AsyncSelectField}
                             />
                         </div>
-                        <div className="col-md-6 col-12 mb-2">
-                            <label htmlFor="number_field">Number Field decimal scale</label>
+                        <div className="col-12 mb-2">
+                            <label htmlFor="creatable_select_field">Creatable Select</label>
                             <Field
-                                decimalScale={2}
-                                name="number_field_fixed_decimals"
-                                placeholder="Number Field Decimal Scale"
-                                component={renderNumber}
-                            />
-                        </div>
-                        <div className="col-md-6 col-12 mb-2">
-                            <label htmlFor="number_field">Number Field with suffix</label>
-                            <Field
-                                name="number_field_suffix"
-                                decimalScale={2}
-                                suffix="%"
-                                placeholder="Number Field With Suffix"
-                                component={renderNumber}
-                            />
-                        </div>
-                        <div className="col-md-6 col-12 mb-2">
-                            <label htmlFor="number_field">Number Field with prefix</label>
-                            <Field
-                                name="number_field_prefix"
-                                decimalScale={2}
-                                prefix="E "
-                                placeholder="Number Field With Prefix"
-                                component={renderNumber}
-                            />
-                        </div>
-                        <div className="col-md-6 col-12 mb-2">
-                            <label htmlFor="number_field">Currency Field</label>
-                            <Field
-                                name="currency_field"
-                                decimalScale={2}
-                                prefix="E "
-                                placeholder="Number Field With Prefix"
-                                component={renderNumber}
-                            />
-                        </div>
-                        <div className="col-md-6 col-12 mb-2">
-                            <label htmlFor="number_field">Number Field specific format</label>
-                            <Field
-                                name="number_field_prefix_format"
-                                decimalScale={2}
-                                numberFormat="#### #### #### ####"
-                                prefix="Q "
-                                placeholder="#### #### #### ####"
-                                component={renderNumber}
+                                name="creatable_select_field"
+                                options={exampleOptions}
+                                component={CreatableSelectField}
                             />
                         </div>
                     </div>
