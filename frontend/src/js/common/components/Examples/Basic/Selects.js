@@ -4,7 +4,6 @@ import {
     renderCurrency,
     renderNumber,
     renderField,
-    renderFilePicker,
     renderTextArea,
 } from "Utils/renderField/renderField";
 
@@ -74,8 +73,10 @@ class Inputs extends Component {
                             <label htmlFor="number_field">Currency Field</label>
                             <Field
                                 name="currency_field"
-                                placeholder="Currency Field"
-                                component={renderCurrency}
+                                decimalScale={2}
+                                prefix="E "
+                                placeholder="Number Field With Prefix"
+                                component={renderNumber}
                             />
                         </div>
                         <div className="col-md-6 col-12 mb-2">
@@ -87,13 +88,6 @@ class Inputs extends Component {
                                 prefix="Q "
                                 placeholder="#### #### #### ####"
                                 component={renderNumber}
-                            />
-                        </div>
-                        <div className="col-12 mb-2">
-                            <label htmlFor="file_field">File Field</label>
-                            <Field
-                                name="file_field"
-                                component={renderFilePicker}
                             />
                         </div>
                     </div>

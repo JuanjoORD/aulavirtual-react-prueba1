@@ -1,8 +1,9 @@
 import React from 'react';
-import { AsyncCreatable, Async } from 'react-select';
+import Select, { AsyncCreatable, Async } from 'react-select';
 import NumberFormat from 'react-number-format';
 import classNames from 'classnames';
 import Switch from 'react-switch';
+import FileUploader from '../FileUploader/FileUploader';
 
 
 export const renderField = ({
@@ -144,7 +145,7 @@ export const renderFieldCheck = ({ input, label, value, disabled, type, meta: { 
                         className={classNames('', { 'is-invalid': invalid })}
                     />
                     <span className="fa fa-check" />
-                &nbsp;{label}
+                    &nbsp;{label}
                 </label>
             </div>
             {invalid && (
@@ -178,6 +179,72 @@ export const renderFieldRadio = ({ input, label, value, disabled, meta: { touche
                 </div>
             )}
         </React.Fragment>
+    )
+};
+
+export const SelectField = (
+    {
+        isClearable,
+        isSearchable,
+        options,
+        placeholder,
+        labelKey="label",
+        valueKey="value",
+        meta: { touched, error }
+    }) => {
+
+    const invalid = touched && error;
+    const _options = [];
+    options.forEach(option => {
+        _options.push({...option, label: option[labelKey], value: option[valueKey]});
+    });
+
+    return (
+        <React.Fragment>
+            <Select
+                isClearable={isClearable}
+                className={classNames('react-select-container', { 'is-invalid': invalid })}
+                backspaceRemovesValue={false}
+                isSearchable={isSearchable}
+                options={_options}
+                labelKey={labelKey}
+                valueKey={valueKey}
+                placeholder={placeholder}
+                onChange={(e) => { input.onChange(e ? e[valueKey] : null); }}
+                value={input.value}
+                isDisabled={disabled}
+            />
+            {invalid && (
+                <div className="invalid-feedback">
+                    {error}
+                </div>
+            )}
+        </React.Fragment>
+    )
+};
+
+export const renderFilePicker = ({photo, setFile, className, disabled, input, meta: { touched, error } }) => {
+    const invalid = touched && error;
+    return (
+        <div className={classNames(`${className}`, { 'is-invalid': invalid })}>
+            <FileUploader
+                disabled={disabled}
+                img= {!!photo ? photo : null}
+                onFileChange={(e, file) => {
+                    file = file || e.target.files[0];
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        input.onChange(reader.result);
+                        if (!!setFile) {
+                            setFile(file);
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                }} />
+            {invalid && <div className="invalid-feedback">
+                {error}
+            </div>}
+        </div>
     )
 };
 
