@@ -3,7 +3,9 @@ import Select, { Creatable, Async } from 'react-select';
 import NumberFormat from 'react-number-format';
 import classNames from 'classnames';
 import Switch from 'react-switch';
+import DayPicker from '../DayPicker';
 import FileUploader from '../FileUploader/FileUploader';
+import DatePicker from "react-date-picker";
 
 
 export const renderField = ({
@@ -322,6 +324,42 @@ export const renderFilePicker = ({photo, setFile, className, disabled, input, me
                     };
                     reader.readAsDataURL(file);
                 }} />
+            {invalid && <div className="invalid-feedback">
+                {error}
+            </div>}
+        </div>
+    )
+};
+
+export const renderDayPicker = ({className, disabled, maxDate, minDate, input, meta: { touched, error } }) => {
+    const invalid = touched && error;
+    return (
+        <div className={classNames(`${className}`, { 'is-invalid': invalid })}>
+            <DayPicker
+                disabled={disabled}
+                maxDate={maxDate}
+                minDate={minDate}
+                onChange={e => input.onChange(e)}
+                value={input.value}
+            />
+            {invalid && <div className="invalid-feedback">
+                {error}
+            </div>}
+        </div>
+    )
+};
+
+export const renderDatePicker = ({className, disabled, maxDate, minDate, input, meta: { touched, error } }) => {
+    const invalid = touched && error;
+    return (
+        <div className={classNames(`${className}`, { 'is-invalid': invalid })}>
+            <DatePicker
+                onChange={e => input.onChange(e)}
+                disabled={disabled}
+                maxDate={maxDate}
+                minDate={minDate}
+                value={input.value}
+            />
             {invalid && <div className="invalid-feedback">
                 {error}
             </div>}

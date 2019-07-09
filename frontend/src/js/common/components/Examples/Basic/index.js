@@ -5,6 +5,7 @@ import LoadMasks from "./LoadMasks";
 import Buttons from "./Buttons";
 import Inputs from "./Inputs";
 import Selects from "./Selects";
+import Date from "./Date";
 
 
 class Examples extends Component {
@@ -91,6 +92,10 @@ class Examples extends Component {
                         <div className="mb-4 card card-small">
                             <div className="border-bottom card-header"><h6 className="m-0">Select Form Inputs</h6></div>
                             <Selects />
+                        </div>
+                        <div className="mb-4 card card-small">
+                            <div className="border-bottom card-header"><h6 className="m-0">Date Type Form Inputs</h6></div>
+                            <Date />
                         </div>
                     </div>
                 </div>

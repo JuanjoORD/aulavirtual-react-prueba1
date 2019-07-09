@@ -1,0 +1,16 @@
+.date-picker-custom-overlay {
+    position: absolute;
+    background-color: #FFF;
+    z-index: 10000;
+    border-radius: 0.5em;
+    border: 0.1em solid #cacaca;
+}
+.DayPicker-Caption > div {
+    text-transform: capitalize;
+}
+.DayPicker-Day {
+    padding: 0.1em !important;
+}
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+    background-color: #80bdff !important;
+}
