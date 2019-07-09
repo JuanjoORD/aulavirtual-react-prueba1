@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { renderFieldCheck, renderFieldRadio, renderSwitch } from '../Utils/renderField/renderField';
+import { renderFieldCheck, renderFieldRadio, renderSwitch } from '../../Utils/renderField/renderField';
 import LoadMasks from "./LoadMasks";
 import Buttons from "./Buttons";
+import Inputs from "./Inputs";
+import Selects from "./Selects";
+import Date from "./Date";
 
 
 class Examples extends Component {
@@ -81,11 +84,19 @@ class Examples extends Component {
                                 </div>
                             </div>
                             <Buttons />
+                            <Inputs />
                         </div>
                         <LoadMasks />
                     </div>
                     <div className="mb-4 col-lg-4">
-                        df
+                        <div className="mb-4 card card-small">
+                            <div className="border-bottom card-header"><h6 className="m-0">Select Form Inputs</h6></div>
+                            <Selects />
+                        </div>
+                        <div className="mb-4 card card-small">
+                            <div className="border-bottom card-header"><h6 className="m-0">Date Type Form Inputs</h6></div>
+                            <Date />
+                        </div>
                     </div>
                 </div>
             </form>
