@@ -42,7 +42,7 @@ class Siderbar extends Component {
                                 <div className="d-inline-block item-icon-wrapper">
                                     <i className="material-icons">vertical_split</i>
                                 </div>
-                                <span>Pagina ejemplo</span>
+                                <span>Basic components</span>
                             </NavLink>
                         </li>
                         <li className="nav-item">

@@ -9,7 +9,7 @@ import { NotificationContainer } from 'react-notifications';
 import { Login, Registro } from './common/components/LoginRegister';
 import Demo from './common/components/Demo/Demo';
 import ProtectedRoute from './ProtectedRoute';
-import Examples from './common/components/Examples/Examples';
+import Examples from './common/components/Examples/Basic';
 import NotFound from './common/components/layout/NotFound/NotFound';
 
 import '../assets/fonts/fonts.css';
