@@ -4,6 +4,7 @@ import { reducer as formReducer } from 'redux-form'
 import login from './modules/cuenta/login';
 import register from './modules/cuenta/register';
 import usuarios from './modules/usuarios/usuarios';
+import notificaciones from './modules/notificaciones/notificaciones';
 
 export default combineReducers({
     form: formReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
     register,
     usuarios,
     routing,
+    notificaciones,
 });
