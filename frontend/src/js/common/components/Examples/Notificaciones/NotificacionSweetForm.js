@@ -1,13 +1,13 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {validate, validators} from 'validate-redux-form';
-import {renderField, renderFieldRadio, renderTextArea} from '../../Utils/renderField/renderField';
+import {renderFieldRadio} from '../../Utils/renderField/renderField';
 
 
-const NotificacionForm = (props) => {
+const NotificacionSweeForm = (props) => {
     const { handleSubmit } = props;
     return (
-        <form name="notificacioForm" className="form-validate mb-lg" onSubmit={handleSubmit}>
+        <form name="notificacioSweetForm" className="form-validate mb-lg" onSubmit={handleSubmit}>
             <div className="row">
                 <div className="col-lg-6">
                     <h4>Tipo de notificacion</h4>
@@ -43,37 +43,11 @@ const NotificacionForm = (props) => {
                             />
                         </div>
                     </div>
-                </div>
-                <div className="col-lg-6">
-                    <h4>Escribe el mensaje</h4>
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <label htmlFor="">Titulo </label>
-                            <Field
-                                name="titulo"
-                                label="Titulo"
-                                component={renderField}
-                                type="text"
-                                className="form-control"
-                            />
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <label htmlFor="">Mensaje</label>
-                            <Field
-                                name="mensaje"
-                                label="Titulo"
-                                component={renderTextArea}
-                                className="form-control"
-                            />
-                        </div>
-                    </div>
                     <div className="row mb-5 mt-4">
-                        <div className="col-lg-12 d-flex justify-content-end">
+                        <div className="col-lg-12 d-flex justify-content-start">
                             <button
                                 className="btn btn-primary">
-                                ENVIAR NOTIFICACION
+                                VER SWEET
                             </button>
                         </div>
                     </div>
@@ -84,15 +58,13 @@ const NotificacionForm = (props) => {
 };
 
 export default reduxForm({
-    form: 'notificacioForm',
+    form: 'notificacioSweetForm',
     initialValues: {
-        typeNoti: 'error',
+        typeNoti: 'success',
     },
     validate: (data) => {
         return validate(data, {
             typeNoti: validators.exists()('Este campo es requerido'),
-            titulo: validators.exists()('Este campo es requerido'),
-            mensaje: validators.exists()('Este campo es requerido'),
         });
     },
-})(NotificacionForm);
+})(NotificacionSweeForm);
