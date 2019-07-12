@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link, NavLink} from "react-router-dom";
 
-class Siderbar extends Component {
+class SideBar extends Component {
     constructor(props) {
         super(props);
     }
@@ -68,4 +68,4 @@ class Siderbar extends Component {
     }
 }
 
-export default Siderbar;
+export default SideBar;
