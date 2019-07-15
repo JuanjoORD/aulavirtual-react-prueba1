@@ -116,6 +116,6 @@ body {
     z-index: 999999;
 }
 
-// Importando estilos para rc-tabs
+/*Importando estilos para rc-tabs*/
 @import "../../node_modules/rc-tabs/assets/index.css";
 @import "./rc-tabs.css";
