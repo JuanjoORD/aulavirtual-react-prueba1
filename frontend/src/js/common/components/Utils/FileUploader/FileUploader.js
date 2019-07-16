@@ -33,7 +33,8 @@ class FileUploader extends Component {
             // setea la imágen si se le envia una
             this.setState({
                 imageSrc: this.props.img,
-                loaded: true
+                loaded: true,
+                isImage: true,
             });
         }
     }
