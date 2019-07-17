@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import { actions } from '../../../../redux/modules/cuenta/register';
+import { actions } from '../../../../redux/modules/cuenta/profile';
 import Profile from './Profile';
 
 
 const ms2p = (state) => {
-  return {
-    ...state.registro,
-  };
+    return {
+        ...state.login,
+    };
 };
 
 const md2p = { ...actions };

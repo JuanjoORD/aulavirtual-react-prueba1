@@ -26,7 +26,7 @@ class Navbar extends Component {
                     <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                         <DropdownToggle color="light" caret className="nav-item-dropdown border-0">
                             <img className="user-avatar rounded-circle mr-3"
-                                 src={user.avatar ? user.avatar : defaultAvatar}
+                                 src={(user.profile && user.profile.avatar) ? user.profile.avatar : defaultAvatar}
                                  alt="User Avatar" />
                             <span className="d-none d-md-inline-block">{user.first_name}</span>
                         </DropdownToggle>

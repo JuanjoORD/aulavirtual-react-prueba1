@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import { NotificationContainer } from 'react-notifications';
 
-import { Login, Registro } from './common/components/LoginRegister';
+import {Login, Profile, Registro} from './common/components/LoginRegister';
 import Demo from './common/components/Demo/Demo';
 import ProtectedRoute from './ProtectedRoute';
 import Examples from './common/components/Examples/Basic';
@@ -30,6 +30,7 @@ module.exports = (
                 <Route exact path="/registro" component={Registro} />
                 <ProtectedRoute exact path="/" component={Demo} />
                 <ProtectedRoute exact path="/page2" component={Examples} />
+                <ProtectedRoute exact path="/user-profile" component={Profile} />
                 <ProtectedRoute exact path="/grids" component={Grids} />
                 <ProtectedRoute exact path="/notifications" component={Notificaciones} />
                 <ProtectedRoute exact path="/tabs" component={ExampleTabs} />

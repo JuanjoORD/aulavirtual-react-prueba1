@@ -1,3 +1,6 @@
+import json
+
+from django.core.files import File
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status, filters, viewsets
 from django.contrib.auth.models import User
@@ -7,6 +10,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
 
+from api.models import Profile
 from api.serializers import UserSerializer, UserReadSerializer
 
 
@@ -51,6 +55,40 @@ class UserViewset(viewsets.ModelViewSet):
             return {'Location': str(data[api_settings.URL_FIELD_NAME])}
         except (TypeError, KeyError):
             return {}
+
+    @action(methods=["put"], detail=False)
+    def update_me(self, request, *args, **kwargs):
+        data = request.data
+        try:
+            avatar = data.get("avatar")
+            data = json.loads(data["data"])
+            user = request.user
+            if user.username != data["username"]:
+                try:
+                    User.objects.get(username=data["username"])
+                    return Response(
+                        {"detail": "the chosen username in not available, please pick another"},
+                        status=status.HTTP_400_BAD_REQUEST
+                    )
+                except User.DoesNotExist:
+                    pass
+            user.username = data["username"]
+            user.first_name = data["first_name"]
+            user.last_name = data["last_name"]
+            perfil, created = Profile.objects.get_or_create(user=user)
+            if avatar is not None:
+                perfil.avatar = File(avatar)
+            profile = data.get("profile")
+            if profile is not None:
+                perfil.phone = profile.get("phone", perfil.phone)
+                perfil.address = profile.get("address", perfil.address)
+                perfil.gender = profile.get("gender", perfil.gender)
+            user.save()
+            perfil.save()
+            serializer = UserReadSerializer(user)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except KeyError as e:
+            return Response({"detail": "{} is a required field".format(str(e))}, status=status.HTTP_400_BAD_REQUEST)
 
     @action(methods=["get"], detail=False)
     def me(self, request, *args, **kwargs):

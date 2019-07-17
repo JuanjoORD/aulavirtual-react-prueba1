@@ -6,6 +6,7 @@ import Switch from 'react-switch';
 import DayPicker from '../DayPicker';
 import FileUploader from '../FileUploader/FileUploader';
 import DatePicker from "react-date-picker";
+import _ from "lodash";
 
 
 export const renderField = ({
@@ -203,6 +204,10 @@ export const SelectField = (
     options.forEach(option => {
         _options.push({...option, label: option[labelKey], value: option[valueKey]});
     });
+    let value = input.value;
+    if (value !== null && value !== undefined) {
+        value = _.find(_options, {value});
+    }
 
     return (
         <React.Fragment>
@@ -214,8 +219,8 @@ export const SelectField = (
                 isSearchable={isSearchable}
                 options={_options}
                 placeholder={placeholder}
-                onChange={(e) => { input.onChange(e ? e : null); }}
-                value={input.value}
+                onChange={(e) => { input.onChange(e ? e[valueKey] : null); }}
+                value={value}
                 isDisabled={disabled}
             />
             {invalid && (
@@ -306,6 +311,17 @@ export const CreatableSelectField = (
     )
 };
 
+
+/**
+ * @param photo: este parametro se usa para tener la imagen previa de una imagen en dado caso el formulario es
+ * usado para una actualizacion, se espera que sea la ruta donde se encuentra la imagen
+ * @param setFile
+ * @param className
+ * @param disabled
+ * @param input
+ * @param touched
+ * @param error
+ * */
 export const renderFilePicker = ({photo, setFile, className, disabled, input, meta: { touched, error } }) => {
     const invalid = touched && error;
     return (
