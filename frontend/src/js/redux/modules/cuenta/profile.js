@@ -25,7 +25,7 @@ export const update = (data = {}, attachments=[]) => (dispatch, getStore) => {
     dispatch(setLoader(true));
     api.putAttachments('user/update_me', data, attachments).then((response) => {
         dispatch(setMe(response));
-        dispatch(push("/"));
+        NotificationManager.success('Datos actualizados exitosamente', 'ERROR', 1000);
     }).catch(() => {
         NotificationManager.error('Credenciales incorrectas, vuelva a intentar', 'ERROR', 0);
     }).finally(() => {

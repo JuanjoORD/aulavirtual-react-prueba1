@@ -5237,9 +5237,8 @@ a.text-accent:focus, a.text-accent:hover {
 }
 
 .main-navbar .navbar .user-avatar {
-    max-width: 2.5rem;
-    min-height: 2.5rem;
-    max-height: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .main-navbar .navbar .navbar-nav .dropdown-menu {

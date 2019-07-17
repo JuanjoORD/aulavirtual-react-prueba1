@@ -63,15 +63,26 @@ class UserViewset(viewsets.ModelViewSet):
             avatar = data.get("avatar")
             data = json.loads(data["data"])
             user = request.user
+            if user.username != data["username"]:
+                try:
+                    User.objects.get(username=data["username"])
+                    return Response(
+                        {"detail": "the chosen username in not available, please pick another"},
+                        status=status.HTTP_400_BAD_REQUEST
+                    )
+                except User.DoesNotExist:
+                    pass
             user.username = data["username"]
             user.first_name = data["first_name"]
             user.last_name = data["last_name"]
             perfil, created = Profile.objects.get_or_create(user=user)
             if avatar is not None:
                 perfil.avatar = File(avatar)
-            perfil.phone = data.get("phone", perfil.phone)
-            perfil.address = data.get("address", perfil.address)
-            perfil.gender = data.get("gender", perfil.gender)
+            profile = data.get("profile")
+            if profile is not None:
+                perfil.phone = profile.get("phone", perfil.phone)
+                perfil.address = profile.get("address", perfil.address)
+                perfil.gender = profile.get("gender", perfil.gender)
             user.save()
             perfil.save()
             serializer = UserReadSerializer(user)
