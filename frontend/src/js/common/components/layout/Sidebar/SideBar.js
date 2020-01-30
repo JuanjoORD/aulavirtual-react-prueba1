@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link, NavLink} from "react-router-dom";
 
-class Siderbar extends Component {
+class SideBar extends Component {
     constructor(props) {
         super(props);
     }
@@ -54,6 +54,22 @@ class Siderbar extends Component {
                             </NavLink>
                         </li>
                         <li className="nav-item">
+                            <NavLink to="/notifications" className="nav-link" activeClassName={'active'}>
+                                <div className="d-inline-block item-icon-wrapper">
+                                    <i className="material-icons">vertical_split</i>
+                                </div>
+                                <span>Notificaciones</span>
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="/tabs" className="nav-link" activeClassName={'active'}>
+                                <div className="d-inline-block item-icon-wrapper">
+                                    <i className="material-icons">vertical_split</i>
+                                </div>
+                                <span>Tabs</span>
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
                             <Link to="/login" onClick={logOut} className="nav-link">
                                 <div className="d-inline-block item-icon-wrapper">
                                     <i className="material-icons">lock</i>
@@ -68,4 +84,4 @@ class Siderbar extends Component {
     }
 }
 
-export default Siderbar;
+export default SideBar;

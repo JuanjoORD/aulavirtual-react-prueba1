@@ -12,10 +12,15 @@ git clone https://github.com/CianCoders/react-redux-starter.git
 cd react-redux-starter
 ```
 
-Step 2: Create a virtualenv with python3
+Step 2: Create a virtualenv with python3 (BASE PYTHON 3.6)
+- **IMPORTANT!** Before creating the virtual env, 
+make sure the Python 3 version is 3.6 or higher.
+
 
 ```
 mkvirtualenv starter --python=/usr/bin/python3
+or 
+mkvirtualenv starter --python=/usr/bin/python3.x
 ```
 
 Step 3: Install the backend requirements

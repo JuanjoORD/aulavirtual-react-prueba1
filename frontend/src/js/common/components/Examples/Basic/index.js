@@ -43,12 +43,14 @@ class Examples extends Component {
                                         <strong className="text-muted d-block mb-2">Radio butons</strong>
                                         <fieldset>
                                             <Field
+                                                type="radio"
                                                 name="default_radio"
                                                 label="Default"
                                                 value="default"
                                                 component={renderFieldRadio}
                                             />
                                             <Field
+                                                type="radio"
                                                 name="default_radio"
                                                 label="Default 2"
                                                 value="default2"
@@ -56,6 +58,7 @@ class Examples extends Component {
                                             />
                                             <Field
                                                 disabled
+                                                type="radio"
                                                 name="default_radio"
                                                 label="Disabled"
                                                 value="disabled"
