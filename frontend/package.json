@@ -89,7 +89,7 @@
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "immutable": "^3.8.2",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.19",
     "moment": "^2.24.0",
     "prop-types": "^15.6.2",
     "rc-tabs": "^9.6.4",
