@@ -7,7 +7,7 @@ celery==4.4.0
 certifi==2019.11.28
 chardet==3.0.4
 curtsies==0.3.1
-Django==2.2.9
+Django==2.2.13
 django-admin==2.0.0
 django-debug-toolbar==2.1
 django-excel-response2==2.0.8
