@@ -1,0 +1,19 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h2>Hola <strong>{{ user | 'UserNotFound' }}</strong>, este es un correo de recuperación de contraseña</h2>
+        <p>
+            Para cambiar tu contraseña, por favor da <strong>click</strong> sobre el enlace de abajo:
+            {{ token | '' }}
+        </p>
+        <a href="" target="_blank">Cambiar contraseña</a>
+        <br/>
+        <p>
+            Si no fuiste tu quien solicito este cambio, por favor ignora la indicación anterior.
+            Y procura cambiar tu contraseña desde tu cuenta, la cual se encuetra en el icono superior derecho en la opción
+            <strong>Contraseña</strong>.
+        </p>
+    </body>
+</html>

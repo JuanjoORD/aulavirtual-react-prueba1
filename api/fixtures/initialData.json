@@ -1,0 +1,5 @@
+[    
+    {"model": "api.role", "pk": 1, "fields": {"name": "Administrador"}},
+    {"model": "api.role", "pk": 2, "fields": {"name": "Profesor"}},
+    {"model": "api.role", "pk": 3, "fields": {"name": "Estudiante"}}
+]
