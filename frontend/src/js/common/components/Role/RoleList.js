@@ -25,12 +25,7 @@ class RoleList extends Component{
         return(
             <React.Fragment>
                 <center><h3>Listado de roles</h3></center>
-                <a 
-                    className="btn btn-primary mb-2"
-                    href="/#/role/register"
-                >
-                    Crear rol
-                </a>
+                
                 <Grid hover striped data={data} loading={loader} >
                     <TableHeaderColumn
                         isKey

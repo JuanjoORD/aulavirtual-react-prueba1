@@ -91,7 +91,7 @@ module.exports = (
                 <ProtectedRoute exact path="/profession/:id/editar" component={ProfessionCreateContainer} />
                 <ProtectedRoute exact path="/profession" component={ProfessionListContainer} />
                 
-                <ProtectedRoute exact path="/role/:id" component={RoleCreateContainer} />                
+                <ProtectedRoute exact path="/role/:id" component={RoleCreateContainer} />               
                 <ProtectedRoute exact path="/role" component={RoleListContainer} />
 
                 <ProtectedRoute exact path="/professor/register" component={ProfessorCreateContainer} />
