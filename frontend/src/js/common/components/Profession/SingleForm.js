@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { validate, validators } from 'validate-redux-form';
 import {
     renderCurrency,
     renderNumber,
@@ -8,15 +9,20 @@ import {
     renderTextArea,
 } from "../Utils/renderField/renderField";
 
+let customField = undefined
 class SingleForm extends Component{
     render(){
-        const { handleSubmit, crear, myRoute } = this.props
+        const { handleSubmit, crear, myRoute, myFieldName } = this.props
 
         const editar = window.location.href.includes('editar')
         let disabled = false
 
         if(crear == false && editar == false){
             disabled = true
+        }
+
+        if(myFieldName){
+            customField = myFieldName
         }
 
         return(
@@ -47,10 +53,16 @@ class SingleForm extends Component{
 
 export default reduxForm({
     form: 'single_form',
-    validate: (data) => {        
-        return validate(data, {
-            level: validators.exists()('Este campo es requerido'),
-            year: validators.exists()('Este campo es requerido'),            
-        }); 
+    validate: (data) => {
+        if(customField!==undefined){
+            return validate(data, {
+                year: validators.exists()('Este campo es requerido'),            
+            }); 
+        }
+        else{
+            return validate(data, {
+                name: validators.exists()('Este campo es requerido'),                
+            }); 
+        } 
     }
 })(SingleForm)
