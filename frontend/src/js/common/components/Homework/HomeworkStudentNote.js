@@ -110,5 +110,10 @@ class HomeworkStudentNote extends Component{
 }
 
 export default reduxForm({
-    form: 'homework_note_form', // a unique identifier for this form    
+    form: 'homework_note_form', // a unique identifier for this form
+    validate: (data) => {        
+        return validate(data, {
+            points: validators.exists()('Este campo es requerido'),
+        }); 
+    },
 })(HomeworkStudentNote);

@@ -72,5 +72,12 @@ class GradeForm extends Component{
 }
 
 export default reduxForm({
-    form: 'grade_form'
+    form: 'grade_form',
+    validate: (data) => {        
+        return validate(data, {
+            level: validators.exists()('Este campo es requerido'),
+            name: validators.exists()('Este campo es requerido'),
+            description: validators.exists()('Este campo es requerido'),
+        }); 
+    },
 })(GradeForm)

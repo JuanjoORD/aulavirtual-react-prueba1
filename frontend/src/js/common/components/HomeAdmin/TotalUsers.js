@@ -40,7 +40,16 @@ class TotalUsers extends Component{
                         title:{
                             display: true,
                             text: `Total: ${u.total}`
-                        }                        
+                        },
+                        scales: {
+                            yAxes:[
+                                {
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            ]
+                        }                   
                     }}
                 />
             </div>

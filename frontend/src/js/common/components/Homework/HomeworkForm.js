@@ -121,5 +121,13 @@ class HomeworkForm extends Component{
 
 
 export default reduxForm({
-    form: 'homework_form', // a unique identifier for this form    
+    form: 'homework_form', // a unique identifier for this form
+    validate: (data) => {        
+        return validate(data, {
+            title: validators.exists()('Este campo es requerido'),
+            description: validators.exists()('Este campo es requerido'),
+            date_delivery: validators.exists()('Este campo es requerido'),
+            myvalue: validators.exists()('Este campo es requerido'),
+        }); 
+    },
 })(HomeworkForm);

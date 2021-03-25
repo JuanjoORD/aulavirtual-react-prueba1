@@ -129,11 +129,11 @@ class AssignmentForm extends Component{
 
 export default reduxForm({
     form: 'assignment_form', // a unique identifier for this form
-    /*validate: (data) => {        
+    validate: (data) => {        
         return validate(data, {                        
             section: validators.exists()('Este campo es requerido'),
             grade: validators.exists()('Este campo es requerido'),
             course: validators.exists()('Este campo es requerido'),            
         });
-    },*/
+    },
 })(AssignmentForm);

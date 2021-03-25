@@ -70,5 +70,10 @@ class DeliverHomework extends Component{
 
 
 export default reduxForm({
-    form: 'deliver_homework_form', // a unique identifier for this form    
+    form: 'deliver_homework_form', // a unique identifier for this form
+    validate: (data) => {        
+        return validate(data, {
+            text: validators.exists()('Este campo es requerido'),            
+        }); 
+    }
 })(DeliverHomework);

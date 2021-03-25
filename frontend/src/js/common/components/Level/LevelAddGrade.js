@@ -111,5 +111,11 @@ class LevelAddGrade extends Component{
 }
 
 export default reduxForm({
-    form: 'level_add_grade', // a unique identifier for this form   
+    form: 'level_add_grade', // a unique identifier for this form
+    validate: (data) => {        
+        return validate(data, {
+            name: validators.exists()('Este campo es requerido'),
+            description: validators.exists()('Este campo es requerido'),            
+        }); 
+    },
 })(LevelAddGrade);

@@ -73,5 +73,12 @@ class AssignmentMaterialForm extends Component{
 
 
 export default reduxForm({
-    form: 'assign_material_form', // a unique identifier for this form    
+    form: 'assign_material_form', // a unique identifier for this form 
+    validate: (data) => {        
+        return validate(data, {
+            title: validators.exists()('Este campo es requerido'),       
+            myfile: validators.exists()('Este campo es requerido'),
+            description: validators.exists()('Este campo es requerido'),
+        }); 
+    } 
 })(AssignmentMaterialForm);

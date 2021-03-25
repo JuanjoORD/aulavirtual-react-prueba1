@@ -46,5 +46,11 @@ class SingleForm extends Component{
 }
 
 export default reduxForm({
-    form: 'single_form'
+    form: 'single_form',
+    validate: (data) => {        
+        return validate(data, {
+            level: validators.exists()('Este campo es requerido'),
+            year: validators.exists()('Este campo es requerido'),            
+        }); 
+    }
 })(SingleForm)
