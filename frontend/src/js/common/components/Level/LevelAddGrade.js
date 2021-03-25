@@ -35,7 +35,7 @@ class LevelAddGrade extends Component{
                                 </div>
 
                                 <div className="form-group has-feedback">
-                                    <label htmlFor="description">Apellido</label>
+                                    <label htmlFor="description">Descripción</label>
                                     <Field name="description" placeholder="Descripción" 
                                         component={renderField} className="form-control" disabled={false} 
                                     />
