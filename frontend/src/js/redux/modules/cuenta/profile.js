@@ -1,6 +1,7 @@
 import { handleActions } from 'redux-actions';
 import { push } from "react-router-redux";
 import { NotificationManager } from "react-notifications";
+import { initialize as initializeForm } from 'redux-form';
 import { api } from "api";
 import {setMe} from "./login";
 
@@ -26,6 +27,7 @@ export const update = (data = {}, attachments=[]) => (dispatch, getStore) => {
     api.putAttachments('user/update_me', data, attachments).then((response) => {
         dispatch(setMe(response));
         NotificationManager.success('Datos actualizados exitosamente', 'ERROR', 1000);
+        dispatch(push('/'));
     }).catch(() => {
         NotificationManager.error('Credenciales incorrectas, vuelva a intentar', 'ERROR', 0);
     }).finally(() => {
@@ -33,8 +35,14 @@ export const update = (data = {}, attachments=[]) => (dispatch, getStore) => {
     });
 };
 
+export const initialProfile = () => (dispatch, getStore) => {
+    const me = getStore().login.me
+    dispatch(initializeForm('profile', me));
+};
+
 export const actions = {
     update,
+    initialProfile
 };
 
 export const reducers = {

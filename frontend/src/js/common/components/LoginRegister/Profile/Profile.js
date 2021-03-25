@@ -11,6 +11,11 @@ class Profile extends Component {
         this.state = {avatar: null};
     }
 
+    componentDidMount = () => {
+        const { initialProfile } = this.props
+        initialProfile()
+    }
+
     setAvatar = (avatar) => {
         this.setState({avatar});
     };

@@ -10,7 +10,7 @@ import _ from "lodash";
 
 
 export const renderField = ({
-                                input, placeholder, type, meta: { touched, error },
+                                input, placeholder, type, meta: { touched, error }, disabled = false
                             }) => {
     const invalid = touched && error;
     return (
@@ -19,6 +19,7 @@ export const renderField = ({
                 {...input}
                 placeholder={placeholder}
                 type={type}
+                disabled={disabled}
                 className={classNames('form-control', { 'is-invalid': invalid })}
             />
             {invalid && (
@@ -53,7 +54,7 @@ export const renderTextArea = ({
 };
 
 export const renderNumber = ({
-                                 input, decimalScale, placeholder, meta: { touched, error }, prefix="", suffix="", numberFormat,
+                                 input, decimalScale, placeholder, meta: { touched, error }, prefix="", suffix="", numberFormat, disabled = false
                              }) => {
     const invalid = touched && error;
     return (
@@ -71,6 +72,7 @@ export const renderNumber = ({
                 onValueChange={(values) => {
                     input.onChange(values.value);
                 }}
+                disabled={disabled}
             />
             {invalid && (
                 <div className="invalid-feedback">
@@ -109,7 +111,7 @@ export const renderCurrency = ({
 };
 
 export const renderSwitch = ({
-                                 input, meta: { touched, error }, label, disabled,
+                                 input, meta: { touched, error }, label, disabled, tag
                              }) => {
     const invalid = touched && error;
     return (
@@ -125,7 +127,7 @@ export const renderSwitch = ({
                 checked={input.value ? input.value : false}
                 // id="normal-switch"
             />
-            &nbsp;{label}
+            &nbsp;{tag !== undefined ? (input.value ? tag[0] : tag[1]) : label}
             {invalid && (
                 <div className="invalid-feedback">
                     {error}

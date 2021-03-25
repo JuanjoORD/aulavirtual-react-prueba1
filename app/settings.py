@@ -29,6 +29,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#Configuracion para activar servidor de Correos Electronicos
+EMAIL_HOST = 'smtp.googlemail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "maddumbo97@gmail.com"#config('USER_MAIL')
+EMAIL_HOST_PASSWORD = "Dunbo 123"#config('USER_MAIL_PASSWORD')
+EMAIL_USE_TLS = True
+RESTORE_PASSWORD_KEY = 'AprobacionDeCiancoders'
+
 
 # Application definition
 
@@ -46,7 +54,7 @@ INSTALLED_APPS = [
     'api',
     'mptt',
     'django.contrib.sites',
-    'djcelery',
+    #'djcelery',
     'debug_toolbar',
 ]
 
@@ -142,8 +150,10 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'es-ES'
 
 TIME_ZONE = 'UTC'
+#TIME_ZONE = 'America/Guatemala'
 
 USE_I18N = True
 

@@ -16,6 +16,18 @@ class Navbar extends Component {
     };
     render() {
         const { navToggle, logOut, user } = this.props;
+        const roleUser = user.profile ? user.profile.role : null
+        let pathPassword = "/user/change_password"
+        let pathProfile = "/user-profile"
+        if(roleUser === 2){
+            pathPassword = "/my_assignment_prof/change_password"
+            pathProfile = "/my_assignment_prof/user-profile"
+        }
+        
+        if(roleUser === 3){
+            pathPassword = "/assignment_student/change_password"
+            pathProfile = "/assignment_student/user-profile"
+        }
 
         return (
             <nav className="align-items-stretch flex-md-nowrap p-0 navbar navbar-light">
@@ -34,12 +46,19 @@ class Navbar extends Component {
                             <DropdownItem header>Header</DropdownItem>
                             <DropdownItem>
                                 <Link tabIndex="0"
-                                   to="/user-profile">
+                                   to={pathProfile}>
                                     <i className="material-icons"></i>
                                     Profile
                                 </Link>
                             </DropdownItem>
                             <DropdownItem>
+                                <Link tabIndex="0"
+                                   to={pathPassword}>
+                                    <i className="material-icons"></i>
+                                    Contraseña
+                                </Link>
+                            </DropdownItem>
+                            {/* <DropdownItem>
                                 <Link tabIndex="0"
                                    to="/edit-user-profile">
                                     <i className="material-icons"></i>
@@ -59,7 +78,7 @@ class Navbar extends Component {
                                     <i className="material-icons"></i>
                                     Transactions
                                 </Link>
-                            </DropdownItem>
+                            </DropdownItem> */}
                             <DropdownItem divider />
                             <DropdownItem>
                                 <a tabIndex="0" className="text-danger" onClick={logOut} href="/">

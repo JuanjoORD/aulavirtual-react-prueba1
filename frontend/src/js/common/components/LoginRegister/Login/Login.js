@@ -31,7 +31,12 @@ class Login extends Component {
                         <h5 className="text-center pv">INGRESAR</h5>
                         <LoadMask loading={loader} light>
                             <LoginForm onSubmit={onSubmit} />
-                            <span>¿No tienes cuenta?&nbsp;<Link to="/registro">Registrate aquí</Link></span>
+                            <center>
+                                <span>
+                                    ¿Has olvidado tu  contraseña?<br/>
+                                    <Link to="/verify_email_user">Click para recuperarla</Link>
+                                </span>
+                            </center>
                         </LoadMask>
                     </div>
                 </div>

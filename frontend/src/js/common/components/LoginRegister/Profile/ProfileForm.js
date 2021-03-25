@@ -10,11 +10,13 @@ const genders = [
 
 const ProfileForm = (props) => {
     const { handleSubmit, me, setAvatar } = props;
+    console.log('LA DATA DE VARIABLE ME:', me)
     return (
             <form action="" onSubmit={handleSubmit} className="py-4">
                 <h2>PERFIL</h2>
                 <div className="mb-4 card card-small">
                     <div className="border-bottom card-header"><h6 className="m-0">{me.first_name} {me.last_name}</h6></div>
+
                     <div className="p-0 pt-3 d-flex flex-column flex-md-row">
                         <div className="form-group has-feedback flex-1 mx-3">
                             <label htmlFor="avatar">Avatar</label>
@@ -37,6 +39,7 @@ const ProfileForm = (props) => {
                             </div>
                         </div>
                     </div>
+
                     <div className="p-0 pt-3 d-flex flex-column flex-md-row">
                         <div className="form-group has-feedback flex-1 mx-3">
                             <div className="form-group has-feedback">
@@ -61,6 +64,7 @@ const ProfileForm = (props) => {
                             </div>
                         </div>
                     </div>
+
                     <div className="d-flex">
                         <button className="btn btn-primary mx-auto mb-3">Guardar</button>
                     </div>
