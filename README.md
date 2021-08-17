@@ -2,7 +2,7 @@
 [![Dependency Status][david_img]][david_site]
 [![Join the chat at https://gitter.im/iroy2000-react-redux-boilerplate/Lobby](https://badges.gitter.im/iroy2000-react-redux-boilerplate/Lobby.svg)](https://gitter.im/iroy2000-react-redux-boilerplate/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
--**-----------Pasantia Juan José Ordoñez-------------**
+-**-----------Juan José Ordoñez-------------**
 
 - **MANUAL USER (video):** to view the user manual, visit the following link and see the video.
 https://drive.google.com/drive/folders/1c28rH5th78m8Kn-Xv-TZkc7Uk3o9VQ-X?usp=sharing
@@ -12,6 +12,11 @@ https://drive.google.com/drive/folders/1c28rH5th78m8Kn-Xv-TZkc7Uk3o9VQ-X?usp=sha
 ### TL;DR
 
 Before you dive into anything, see for yourself how easy you can setup a full workflow framework for your `development` and `deployment` for your real world project.
+
+IMPORTANT: This project uses as a base the CIANCODERS repository
+```
+https://github.com/CianCoders/react-redux-starter.git
+```
 
 Step 1: Clone this repo
 ```
