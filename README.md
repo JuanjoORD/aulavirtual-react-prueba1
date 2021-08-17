@@ -30,6 +30,8 @@ make sure the Python 3 version is 3.6 or higher.
 
 
 ```
+python 3 -m venv starter
+or
 mkvirtualenv starter --python=/usr/bin/python3
 or 
 mkvirtualenv starter --python=/usr/bin/python3.x
