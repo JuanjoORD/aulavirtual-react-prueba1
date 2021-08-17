@@ -20,7 +20,7 @@ https://github.com/CianCoders/react-redux-starter.git
 
 Step 1: Clone this repo
 ```
-git clone https://github.com/CianCoders/react-redux-starter.git
+git clone https://github.com/JuanjoORD/aulavirtual-react-prueba1.git
 cd react-redux-starter
 ```
 
